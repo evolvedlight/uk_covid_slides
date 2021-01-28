@@ -51,7 +51,15 @@ jobs:
 
           echo $reqbody > input.json
 
-          curl -H "Content-Type: application/json" -X POST -d @input.json https://slidetemplater.azurewebsites.net/api/GeneratePptx > output.pptx
+          curl -H "Content-Type: application/json" -X POST -d @input.json https://slidetemplater.azurewebsites.net/api/GeneratePptx > CovidData.pptx
 
           rm fileB64
           rm input.json
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Stephen Brown
+          author_email: steve@evolvedlight.co.uk
+          message: 'Add updated figures'
+          add: 'CovidData.pptx'
