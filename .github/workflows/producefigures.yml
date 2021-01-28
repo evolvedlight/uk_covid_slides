@@ -37,7 +37,7 @@ jobs:
           newAdmissions=$(curl "https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=newAdmissions&format=json" | jq .body[0].newAdmissions)
           newDeathsByPublishDate=$(curl "https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=newDeathsByPublishDate&format=json" | jq .body[0].newDeathsByPublishDate)
 
-          base64 file.pptx -w 0 > fileB64
+          base64 "UK Covid Figures.pptx" -w 0 > fileB64
 
           reqbody=$(jq -n --arg newVirusTests $newVirusTests --arg newCasesByPublishDate $newCasesByPublishDate --arg newAdmissions $newAdmissions --arg newDeathsByPublishDate $newDeathsByPublishDate --rawfile pptxBase64 fileB64 '{
               "Data": {
