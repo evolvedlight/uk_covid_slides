@@ -46,7 +46,7 @@ jobs:
 
           curl -v --location \
           --request POST 'https://api.slidetemplater.com/GeneratePresentation' \
-          --form 'File=@"file.pptx"' \
+          --form 'File=@"UK Covid Figures.pptx"' \
           --form 'JsonData='$clean_reqbody > CovidData.pptx
 
       - name: Commit changes
